@@ -1,0 +1,120 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f7f7;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-left a,
+.nav-right a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  color: #FFD700;
+}
+
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.left, .right {
+  flex: 1;
+  padding: 20px;
+}
+
+.right {
+  border-left: 1px solid #ccc;
+  background: #fafafa;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row input {
+  flex: 1;
+}
+
+.shipping-method label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.product img {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.price {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.discount {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.discount input {
+  flex: 2;
+}
+
+.discount button {
+  flex: 1;
+  padding: 10px;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.summary .line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.total {
+  font-size: 18px;
+  font-weight: bold;
+}

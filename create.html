@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Create Your Design — Novaé</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- Ton CSS existant (inchangé) ----- */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header h1 { color: #FFD700; margin: 0 0 6px; letter-spacing:1px; }
+    .header p { color: #cfcfcf; margin: 0; }
+
+    .design-area {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .panel {
+      background: #0f0f0f;
+      border-radius: 16px;
+      padding: 26px;
+      box-shadow: 0 6px 30px rgba(255,215,0,0.06);
+      min-width: 300px;
+    }
+
+    .options {
+      flex: 1;
+      max-width: 420px;
+    }
+
+    .options h2 { color: #FFD700; margin-top: 0; }
+    label { display:block; margin-top:12px; color:#ddd; font-weight:600; font-size:14px; }
+    input[type="text"], select {
+      width:100%;
+      padding:10px 12px;
+      margin-top:8px;
+      border-radius:8px;
+      border:none;
+      background:#222;
+      color:#fff;
+      box-sizing:border-box;
+    }
+
+    .color-row { display:flex; gap:12px; align-items:center; margin-top:8px; }
+    input[type="color"] { width:48px; height:36px; padding:0; border-radius:8px; border:none; }
+
+    .file-upload {
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .upload-label {
+      background: linear-gradient(135deg,#FFD700,#ffb800);
+      color:#111;
+      padding:10px 16px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      user-select:none;
+    }
+    .file-name {
+      font-size:13px;
+      color:#ccc;
+      max-width:180px;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+    input[type="file"] { display:none; }
+
+    .apply-btn {
+      margin-top:18px;
+      width:100%;
+      padding:12px;
+      border-radius:28px;
+      border:none;
+      background: linear-gradient(135deg,#222,#555);
+      color:#fff;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .apply-btn:hover { transform:translateY(-3px); }
+
+    .preview {
+      flex: 1;
+      min-width: 300px;
+      max-width: 480px;
+      text-align:center;
+    }
+    .tshirt {
+      width:100%;
+      aspect-ratio: 3 / 4;
+      max-width:380px;
+      margin:0 auto;
+      background:#111;
+      border-radius:20px;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 18px 50px rgba(255,215,0,0.08);
+      overflow:hidden;
+    }
+
+    .tshirt .design-img {
+      max-width:70%;
+      max-height:60%;
+      object-fit:contain;
+      position:relative;
+      z-index:2;
+      pointer-events:none;
+      transition: transform .25s ease;
+    }
+
+    .tshirt .design-text {
+      color:#FFD700;
+      font-size:22px;
+      font-weight:800;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      z-index:1;
+    }
+
+    .hint { color:#aaa; font-size:13px; margin-top:8px; }
+    .error { color:#ff7b7b; margin-top:8px; font-size:13px; }
+
+    @media (max-width:860px){
+      .design-area { flex-direction:column; gap:24px; align-items:center; }
+      .preview { order:-1; }
+    }
+
+    /* ----- Styles du header / navbar comme dans ton code initial ----- */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #000;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .nav-left a,
+    .nav-right a {
+      margin: 0 10px;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .nav-left a:hover,
+    .nav-right a:hover {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("VwVuG_zchNsramK6l");
+  })();
+</script>
+
+<body>
+  <div class="header">
+    <header class="navbar">
+      <div class="nav-left">
+        <a href="summer.html">SUMMER COLLECTION</a>
+        <a href="collections.html">WINTER COLLECTION</a>
+        <a href="about.html">ABOUT THE BRAND</a>
+      </div>
+      <div class="nav-center">
+        <img src="552391812_1140169124961369_4789783329010695948_n.webp" width="100" alt="Novaé Logo">
+      </div>
+      <div class="nav-right">
+        <a href="create.html">CREATE YOUR DESIGN</a>
+        <a href="shopping.html">SHOPPING CART</a>
+        <a href="index.html">HOME</a>
+      </div>
+    </header>
+  </div>
+
+  <div class="container">
+    <div class="design-area">
+      <div class="panel options">
+        <h2>Customize</h2>
+        <label for="color">T-shirt colour</label>
+        <div class="color-row">
+          <input id="color" type="color" value="#000000" title="Choisir la couleur">
+          <span class="hint">Choisis une couleur de fond pour le t-shirt</span>
+        </div>
+
+        <label for="size">Size</label>
+        <select id="size">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+
+        <label for="file-upload">Upload image (logo / png / jpg)</label>
+        <div class="file-upload">
+          <label class="upload-label" for="file-upload">Choose file</label>
+          <span class="file-name" id="fileName">No file chosen</span>
+        </div>
+        <input id="file-upload" type="file" accept="image/*">
+
+        <div id="error" class="error" style="display:none"></div>
+        <label for="client-name">Ton nom</label>
+        <input type="text" id="client-name" placeholder="Ton nom">
+
+<label for="client-email">Ton email</label>
+<input type="email" id="client-email" placeholder="Ton adresse e-mail">
+
+<label for="client-adresse">Ton adresse</label>
+<input type="text" id="client-adresse" placeholder="Ton adresse">
+
+<label for="client-tel">Ton telephone</label>
+<input type="text" id="client-tel" placeholder="Ton tel">
+
+<div id="design-message" class="hint" style="margin-top:12px; color:#FFD700;"></div>
+
+
+        <button class="apply-btn" id="applyBtn">Apply to preview</button>
+        <p class="hint">Max 2 MB. Transparent PNG recommended for logos.</p>
+
+        <button class="apply-btn" id="buyDesignBtn">Acheter Design (20 DT)</button>
+
+      </div>
+
+      <div class="panel preview">
+        <h2 style="color:#FFD700;margin-top:0">Preview</h2>
+        <div class="tshirt" id="tshirt">
+          <img id="designImg" class="design-img" style="display:none" alt="Design preview">
+          <div id="designText" class="design-text">Novaé</div>
+        </div>
+        <div style="margin-top:12px">
+          <div class="hint">Selected size: <strong id="sizeLabel">M</strong></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const fileInput = document.getElementById('file-upload');
+      const fileNameEl = document.getElementById('fileName');
+      const errorEl = document.getElementById('error');
+      const applyBtn = document.getElementById('applyBtn');
+      const colorPicker = document.getElementById('color');
+      const sendDesignBtn = document.getElementById('sendDesignBtn');
+      const tshirt = document.getElementById('tshirt');
+      const designImg = document.getElementById('designImg');
+      const designText = document.getElementById('designText');
+      const sizeSelect = document.getElementById('size');
+      const sizeLabel = document.getElementById('sizeLabel');
+
+      let currentObjectURL = null;
+      const MAX_SIZE_BYTES = 2 * 1024 * 1024; // 2MB
+
+      fileInput.addEventListener('change', () => {
+        errorEl.style.display = 'none';
+        const file = fileInput.files[0];
+        if (!file) {
+          fileNameEl.textContent = 'No file chosen';
+          return;
+        }
+        fileNameEl.textContent = file.name;
+
+        if (!file.type.startsWith('image/')) {
+          errorEl.textContent = "Le fichier sélectionné n'est pas une image.";
+          errorEl.style.display = 'block';
+          fileInput.value = '';
+          fileNameEl.textContent = 'No file chosen';
+          return;
+        }
+        if (file.size > MAX_SIZE_BYTES) {
+          errorEl.textContent = "Fichier trop volumineux (> 2MB). Réduis la taille et réessaie.";
+          errorEl.style.display = 'block';
+          fileInput.value = '';
+          fileNameEl.textContent = 'No file chosen';
+          return;
+        }
+      });
+     
+applyBtn.addEventListener('click', () => {
+  const color = colorPicker.value;
+  const file = fileInput.files[0];
+  const size = sizeSelect.value;
+
+  // Appliquer la couleur
+  tshirt.style.backgroundColor = color;
+
+  // Afficher la taille sélectionnée
+  sizeLabel.textContent = size;
+
+  // Afficher l'image si elle est valide
+  if (file) {
+    if (currentObjectURL) {
+      URL.revokeObjectURL(currentObjectURL);
+    }
+    currentObjectURL = URL.createObjectURL(file);
+    designImg.src = currentObjectURL;
+    designImg.style.display = 'block';
+  } else {
+    designImg.style.display = 'none';
+  }
+});
+
+
+buyDesignBtn.addEventListener('click', () => {
+  const color = colorPicker.value || '#000';
+  const size = sizeSelect.value;
+  const file = fileInput.files[0];
+  const nameInput = document.getElementById('client-name').value.trim();
+  const emailInput = document.getElementById('client-email').value.trim();
+  const adresseInput = document.getElementById('client-adresse').value.trim();
+  const telInput = document.getElementById('client-tel').value.trim();
+  const messageEl = document.getElementById('design-message');
+
+  messageEl.textContent = "";
+  messageEl.style.color = "#FFD700";
+
+  if (!nameInput || !emailInput) {
+    messageEl.textContent = "⚠️ Merci de remplir ton nom et ton e-mail.";
+    messageEl.style.color = "#ff7b7b";
+    return;
+  }
+
+  let imageUrl = "";
+  if (file) {
+    if (!currentObjectURL) {
+      currentObjectURL = URL.createObjectURL(file);
+    }
+    imageUrl = currentObjectURL;
+  }
+  
+
+  // Envoi Email avec EmailJS
+  emailjs.send("service_61gt08f", "template_jac1mve", {
+    nom: nameInput,
+    email: emailInput,
+    telephone: telInput,
+    adresse: adresseInput,
+    couleur: color,
+    taille: size,
+    design_url: imageUrl,
+    prix: "20 DT"
+  })
+  .then(() => {
+    messageEl.textContent = "✅ Achat confirmé ! Ton design a été envoyé avec succès.";
+    messageEl.style.color = "#00e676";
+
+    // Reset (optionnel)
+    // fileInput.value = "";
+    // fileNameEl.textContent = "No file chosen";
+
+    // Tu peux rediriger ou afficher un message plus tard ici
+  })
+  .catch((error) => {
+    console.error("Erreur envoi design :", error);
+    messageEl.textContent = "❌ Une erreur s'est produite lors de l'achat.";
+    messageEl.style.color = "#ff5252";
+  });
+});
+
+
+
+    })();
+  </script>
+</body>
+</html>

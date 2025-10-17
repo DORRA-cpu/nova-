@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page de Paiement</title>
+  <link rel="stylesheet" href="shopping.css" />
+</head>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("VwVuG_zchNsramK6l"); 
+  })();
+</script>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="summer.html">SUMMER COLLECTION</a>
+      <a href="collections.html">WINTER COLLECTION</a>
+      <a href="about.html">ABOUT THE BRAND</a>
+    </div>
+    <div class="nav-center">
+      <img src="552391812_1140169124961369_4789783329010695948_n.webp" width="100" alt="Novaé Logo">
+    </div>
+    <div class="nav-right">
+      <a href="create.html">CREATE YOUR DESIGN</a>
+      <a href="shopping.html">SHOPPING CART</a>
+      <a href="index.html">HOME</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="left">
+      <h2>Email (optionnel)</h2>
+      <input type="email" placeholder="Email ou numéro de téléphone" />
+
+      <h2>Delivery</h2>
+      <label>Pays</label>
+      <select>
+        <option value="TN">Tunisia</option>
+      </select>
+
+      <div class="row">
+        <input type="text" placeholder="Prénom (optionnel)" />
+        <input type="text" placeholder="Nom" />
+      </div>
+
+      <input type="text" placeholder="Adresse" />
+
+      <div class="row">
+        <input type="text" placeholder="Code postal (optionnel)" />
+        <input type="text" placeholder="Ville" />
+      </div>
+
+      <input type="tel" placeholder="Téléphone" />
+
+      <h2>Paiement</h2>
+      <p>Le paiement se fait sur place à la Livraison</p>
+    </div>
+
+    <div class="right">
+      <div id="shopping-cart">
+        <h3>Produit sélectionné :</h3>
+        <img id="produit-image" src="" alt="Produit" style="width: 120px; display: block; margin-bottom: 10px;">
+        <p id="produit-nom">Aucun produit</p>
+        <p id="produit-prix"></p>
+      </div>
+      <div id="message-achat" style="display:none; padding: 15px; border: 1px solid #ccc; margin-bottom: 15px; border-radius: 5px;"></div>
+      <a href="https://www.instagram.com/direct/t/17844346884591709/"></a><button onclick="acheterProduit()">Acheter</button>
+      <style>
+         button{
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #222, #555);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+  button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #555, 222);
+}
+      </style>
+
+      <div class="summary">
+        <div class="line total">
+          <strong>Total</strong>
+          <strong id="total-prix">TND 0.000</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Récupère les infos depuis localStorage
+    window.onload = function () {
+      const produit = JSON.parse(localStorage.getItem('produitPanier'));
+
+      if (produit) {
+        // Affiche les infos dans la page
+        document.getElementById('produit-nom').innerText = produit.nom;
+        document.getElementById('produit-prix').innerText = `Prix : TND ${produit.prix}`;
+        document.getElementById('produit-image').src = produit.image;
+        document.getElementById('total-prix').innerText = `TND ${produit.prix}`;
+      } else {
+        document.getElementById('produit-nom').innerText = "Aucun produit sélectionné";
+      }
+    };
+
+   function acheterProduit() {
+  const produit = JSON.parse(localStorage.getItem('produitPanier'));
+
+  // Récupération des infos du client
+  const nom = document.querySelector('input[placeholder="Nom"]').value;
+  const prenom = document.querySelector('input[placeholder="Prénom (optionnel)"]').value;
+  const email = document.querySelector('input[type="email"]').value;
+  const tel = document.querySelector('input[type="tel"]').value;
+  const adresse = document.querySelector('input[placeholder="Adresse"]').value;
+
+  const messageDiv = document.getElementById('message-achat');
+  console.log("Infos envoyées à EmailJS :", {
+  nom, prenom, telephone: tel, email, adresse,
+  produit_nom: produit.nom,
+  produit_prix: produit.prix
+});
+
+    
+  if (produit && nom && tel && adresse) {
+    // Envoi via EmailJS
+    emailjs.send("service_61gt08f", "template_x3v44ze", {
+      nom: nom,
+      prenom: prenom,
+      telephone: tel,
+      email: email,
+      adresse: adresse,
+      produit_nom: produit.nom,
+      produit_prix: produit.prix
+    })
+    .then(() => {
+      messageDiv.innerText = "✅ Commande envoyée avec succès !";
+      messageDiv.style.display = 'block';
+      messageDiv.style.backgroundColor = '#d4edda';
+      messageDiv.style.color = '#155724';
+
+      localStorage.removeItem('produitPanier');
+    })
+    .catch((error) => {
+  messageDiv.innerText = "❌ Erreur lors de l'envoi de la commande.";
+  messageDiv.style.display = 'block';
+  messageDiv.style.backgroundColor = '#f8d7da';
+  messageDiv.style.color = '#721c24';
+
+  console.error("Erreur EmailJS :", error);
+
+  // Si error contient `status` et `text`, affiche-les pour diagnostiquer
+  if (error.status) {
+    console.error("Statut HTTP :", error.status);
+  }
+  if (error.text) {
+    console.error("Texte d’erreur :", error.text);
+  }
+});
+
+  } else {
+    messageDiv.innerText = "⚠️ Veuillez remplir tous les champs et sélectionner un produit.";
+    messageDiv.style.display = 'block';
+    messageDiv.style.backgroundColor = '#fff3cd';
+    messageDiv.style.color = '#856404';
+  }
+}
+
+
+  </script>
+</body>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "VwVuG_zchNsramK6l",
+      });
+   })();
+</script>
+</html>

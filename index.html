@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>accueil</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="summer.html">SUMMER COLLECTION</a>
+      <a href="collections.html">WINTER COLLECTION</a>
+      <a href="about.html">ABOUT THE BRAND</a>
+    </div>
+    <div class="nav-center">
+      <span>
+      <img src="552391812_1140169124961369_4789783329010695948_n.webp" width="200"  alt="">
+      </span>
+    </div>
+    <div class="nav-right">
+      <a href="create.html">CREATE YOUR DESIGN</a>
+      <a href="shopping.html">SHOPPING CART</a>
+      <a href="index.html">HOME</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <p>Novaé — Wear your story</p>
+      <style>
+        .hero-overlay p{
+          color: #D8B52F;
+          font-family:monospace;
+          font-size: 20px;
+        }
+      </style>
+      <h2>BLACK FRIDAY SALE</h2>
+      <a href="#sales" class="btn">GO TO SALE</a>
+    </div>
+  </section>
+  
+
+  <div class="sale-banner">SHOP BLACK FRIDAY SALE — UP TO 50% OFF</div>
+  <section id="sales">
+  </section>
+
+  <section class="product-grid">
+    <!-- Product cards -->
+    <div class="product-card">
+      <img src="3ec009fac458f102d21312a270d14a1c.jpg" height="1000px" alt="Cap">
+      <h4>Owners Club Cap</h4>
+      <p class="price"><span class="old-price">50dt</span> 35dt</p>
+      <button onclick="ajouterEtRediriger('Owners Club Cap', 35, '3ec009fac458f102d21312a270d14a1c.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>
+  </div>
+  <div class="product-card">
+      <img src="t-shirt.jpg" alt="Black Tee">
+      <h4>Owners Club T-Shirt </h4>
+      <p class="price"><span class="old-price">95dt</span> 65dt</p>
+    <button onclick="ajouterEtRediriger('Owners Club T-Shirt ', 65, 't-shirt.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>
+    </div>
+    <div class="product-card">
+      <img src="blue hoodie.jpg" alt="Blue Hoodie">
+      <h4>Owners Club Hoodie </h4>
+      <p class="price"><span class="old-price">160dt</span> 112dt</p>
+      <button onclick="ajouterEtRediriger('Owners Club Hoodie', 112, 'blue hoodie.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>
+    </div>
+    <div class="product-card">
+      <img src="gymrat.jpg" alt="White Tee">
+      <h4>gymrat T-Shirt </h4>
+      <p class="price"><span class="old-price">95 dt</span> 65dt</p>
+      <button onclick="ajouterEtRediriger('gymrat T-Shirt', 65, 'gymrat.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>
+    </div>
+    <div class="product-card">
+      <img src="tank top.jpg" alt="Tank Top">
+      <h4>24/7 Oversized Tank</h4>
+      <p class="price"><span class="old-price">95dt</span> 65dt</p>
+      <button onclick="ajouterEtRediriger('24/7 Oversized Tank', 65, 'tank top.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>
+    </div>
+
+    <style>
+    button{
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #222, #555);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+  button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #555, 222);
+}
+    </style>
+</section>
+  <footer class="footer">
+    <p>&copy; 2025 Novaé. All rights reserved.</p>
+    <p>instagram page :<a href="https://www.instagram.com/novae.yournewlight7/">novae.yournewlight7</a></p>
+    <style>
+    a {
+      color: blue;               /* couleur bleue comme un lien classique */
+      text-decoration: underline; /* soulignement du texte */
+      font-weight: bold;          /* texte plus visible */
+      cursor: pointer;            /* curseur en forme de main au survol */
+    }
+
+    a:hover {
+      color: darkblue;            /* couleur quand la souris passe dessus */
+    }
+  </style>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>summer Section</title>
+  <link rel="stylesheet" href="summer.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!-- Header -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="summer.html">SUMMER COLLECTION</a>
+      <a href="collections.html">WINTER COLLECTION</a>
+      <a href="about.html">ABOUT THE BRAND</a>
+    </div>
+    <div class="nav-center">
+      <img src="552391812_1140169124961369_4789783329010695948_n.webp" width="100"  alt="Novaé Logo">
+    </div>
+    <div class="nav-right">
+      <a href="create.html">CREATE YOUR DESIGN</a>
+      <a href="shopping.html">SHOPPING CART</a>
+      <a href="index.html">HOME</a>
+      
+    </div>
+  </header>
+  <!-- Navigation / Title -->
+  <div class="nav-center">
+    <h2 class="shop-title">WELCOME TO THE SUMMER SECTION</h2>
+    <h2 class="shop-title">DISCOVER YOUR LOOK</h2>
+  </div>
+
+
+  <!-- Product Grid -->
+  <section class="product-grid">
+    <div class="product-card">
+      <img src="cracked.jpg" alt="Cracked Tee">
+      <h4>Cracked</h4><p class="price">35dt</p>
+      <button onclick="ajouterEtRediriger('cracked', 35, 'cracked.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>    
+    </div>
+
+    <div class="product-card">
+      <img src="guns.jpg" alt="Guns Tee">
+      <h4>Guns</h4>
+      <p class="price">65dt</p>
+       <button onclick="ajouterEtRediriger('Guns', 65, 'guns.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>    
+    </div>
+
+    <div class="product-card">
+      <img src="margoum.jpg" alt="Margoum Hoodie">
+      <h4>Margoum</h4>
+      <p class="price">112dt</p>
+<button onclick="ajouterEtRediriger('margoum', 112, 'margoum.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>    </div>
+
+    <div class="product-card">
+      <img src="arabic.jpg" alt="Arabica Tee">
+      <h4>Arabica</h4>
+      <p class="price">65dt</p>
+      <button onclick="ajouterEtRediriger('Arabica', 65, 'arabic.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>  
+    </div>
+
+    <div class="product-card">
+      <img src="sight.jpg" alt="Sight Tee">
+      <h4>Sight</h4>
+      <p class="price">65dt</p>
+    <button onclick="ajouterEtRediriger('Sight', 65, 'sight.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>   
+  </div>
+
+    <div class="product-card">
+      <img src="equilibre.jpg" alt="Balance Tee">
+      <h4>Balance</h4>
+      <p class="price">65dt</p>
+      <button onclick="ajouterEtRediriger('Balance', 65, 'equilibre.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>
+    </div>
+
+    <div class="product-card">
+      <img src="yours.jpg" alt="Your Path Tee">
+      <h4>Your Path</h4>
+      <p class="price">65dt</p>
+      <button onclick="ajouterEtRediriger('yours', 65, 'yours.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>
+    </div>
+
+    <div class="product-card">
+      <img src="the dream.jpg" alt="Dream Tee">
+      <h4>Dream</h4>
+      <p class="price">65dt</p>
+      <button onclick="ajouterEtRediriger('Dream', 65, 'the dream.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>
+    </div>
+
+    <div class="product-card">
+      <img src="unknown.jpg" alt="Unknown Tee">
+      <h4>Unknown</h4>
+      <p class="price">65dt</p>
+      <button onclick="ajouterEtRediriger('Unknown', 65, 'unknown.jpg')">buy</button>
+      <script>
+      function ajouterEtRediriger(nom, prix, imageUrl) 
+      {
+      const produit = { nom, prix, image: imageUrl };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'shopping.html';
+      }
+    </script>
+    </div>
+  </section>
+</body>
+</html>

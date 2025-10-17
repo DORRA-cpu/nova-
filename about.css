@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-left a,
+.nav-right a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  color: #FFD700;
+}
+
+/* About Section */
+.about-section {
+  padding: 80px 20px;
+  background-color: #0a0a0a;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 60px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.about-text h1 {
+  font-size: 42px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-text h1 span {
+  color: #FFD700;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.signature {
+  color: #FFD700;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Button */
+.about-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  border: none;
+  background: linear-gradient(135deg, #222, #555);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #555, #222);
+  box-shadow: 0 12px 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #111;
+  color: #bbb;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-text h1 {
+    font-size: 32px;
+  }
+  .about-text p {
+    font-size: 15px;
+  }
+}
